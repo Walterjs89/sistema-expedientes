@@ -27,23 +27,6 @@
             <label for="periodo">PERIODO : </label>
             <input type="text" class="form-control" name="periodo" id="periodo" placeholder="Periodo" required>
           </div>
-          <!-- <div class="form-group">
-            <label for="periodo">MES : </label>
-            <select name="mes[]" id="mes[]" multiple="multiple" data-placeholder="Seleccionar un mes" class="form-control select2" style="width: 100%">
-            	<option>Enero</option>	
-            	<option>Febrero</option>	
-            	<option>Marzo</option>	
-            	<option>Abril</option>	
-            	<option>Mayo</option>	
-            	<option>Junio</option>	
-            	<option>Julio</option>	
-            	<option>Agosto</option>	
-            	<option>Septiembre</option>	
-            	<option>Octubre</option>	
-            	<option>Noviembre</option>	
-            	<option>Diciembre</option>	
-            </select>
-          </div> -->
           <div class="form-group">
             <label for="monto">MONTO : </label>
             <input type="number" class="form-control" name="monto" step="any" id="monto" placeholder="Monto" required>
@@ -92,6 +75,7 @@
               <th>PERIODO</th>
               <th>MONTO</th>
               <th>N° PEDIDO DE FONDO</th>
+              <th style="display:none">MONTO TOTAL</th>
               <th>ESTADO</th>
               <th>ACCION</th>
             </tr>

@@ -13,7 +13,6 @@ $(function () {
 		$("input", this).on("keyup change", function () {
 			if (tablaExpte.column(i).search() !== this.value) {
 				tablaExpte.column(i).search(this.value).draw();
-				// console.log(this.value);
 			}
 		});
 	});
@@ -21,16 +20,9 @@ $(function () {
 	var tablaExpte = $("#tbl_expediente").DataTable({
 		orderCellsTop: true,
 		fixedHeader: true,
-		// 'paging'      : true,
-		// 'info'        : true,
-		// 'filter'      : true,
-		// 'stateSave'   : true,
-		// 'ordering'    : false,
-		// 'responsive': true,
 		rowReorder: {
 			selector: "td:nth-child(2)",
 		},
-		// 'lengthChange': false,
 		language: {
 			sProcessing: "Procesando...",
 			sLengthMenu: "Mostrar _MENU_ registros",
@@ -54,13 +46,20 @@ $(function () {
 			url: baseurl + "CtrExpedientes/getExpedientes",
 			type: "POST",
 		},
+		"columnDefs": [
+			{
+			    "targets": [ 5 ],
+			    "visible": false,
+			    "searchable": false
+			},
+		    ],
 		columns: [
-			// {data: 'id_cliente','sClass':'dt-body-center'},
 			{ data: "cliente" },
 			{ data: "numero" },
 			{ data: "periodo" },
 			{ data: "monto" },
 			{ data: "pedido" },
+			{ data: "monto_total" },
 			{
 				orderable: true,
 				render: function (data, type, row) {
@@ -89,6 +88,8 @@ $(function () {
 						row.pedido +
 						"','" +
 						row.fecha +
+						"','" +
+						row.monto_total +
 						"','" +
 						row.estado +
 						'\')" data-toggle="modal" data-target=".editarExpte"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs" onclick="eliminarUsuario(\'' +

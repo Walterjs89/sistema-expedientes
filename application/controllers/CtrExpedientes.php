@@ -282,6 +282,8 @@ class CtrExpedientes extends CI_Controller
 
         $datos = array();
         $montoTotal = 0;
+
+        $montoTotal = $this->Modelo_expediente->getExpedienteMonto($search, $cliente, $numero, $periodo, $num_pedido, $estado)->total;
         foreach ($resultado->result_array() as $row) {
             $array = array();
             $array['id'] = $row['id_expte'];
@@ -293,19 +295,18 @@ class CtrExpedientes extends CI_Controller
             $array['estado'] = $row['estado_expte'];
             $array['num_expte'] = $row['num_expte'];
             $array['prueba'] = $cliente;
+            $array['monto_total'] = number_format($montoTotal, 2, ",", ".");
 
             $datos[] = $array;
-            $montoTotal = $montoTotal + $row['monto'];
         }
 
-        $montoTotal = $this->Modelo_expediente->getExpedienteMonto($search, $cliente, $numero, $periodo, $num_pedido, $estado)->total;
         $totalDatoObtenido = $resultado->num_rows();
 
         $json_data = array(
             'draw' => intval($this->input->post('draw')),
             'recordsTotal' => intval($totalDatoObtenido),
             'recordsFiltered' => intval($totalDatos),
-            'totalAmount'=>number_format($montoTotal, 2, ",", "."),
+            'totalAmount' => number_format($montoTotal, 2, ",", "."),
             'data' => $datos,
         );
         echo json_encode($json_data);
