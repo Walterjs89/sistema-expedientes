@@ -194,14 +194,14 @@ class CtrExpedientes extends CI_Controller
     {
         $id_expte = $this->input->post("mid");
         $data = array(
-            // 'cliente'    => $this->input->post("mcliente"),
             'num_expte' => $this->input->post("mnumero"),
             'periodo' => $this->input->post("mperiodo"),
-            'monto' => $this->input->post("mmonto"),
+            'monto' => str_replace('$','',$this->input->post("mmonto")),
             'num_pedido' => $this->input->post("mpedido"),
             'estado_expte' => $this->input->post("mestado"),
             'alta_expte' => $this->input->post("mfecha"),
         );
+
         $peticion = $this->Modelo_expediente->update_expte($id_expte, $data);
 
         if ($peticion) {

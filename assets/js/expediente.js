@@ -1,4 +1,4 @@
-// var tablaExpte;
+var tablaExpte;
 $(function () {
 	// Setup - add a text input to each footer cell
 	$("#tbl_expediente thead tr").clone(true).appendTo("#tbl_expediente thead");
@@ -105,6 +105,27 @@ $(function () {
 
 		order: [[0, "asc"]],
 	});
+
+	$("#agregarExpediente").on("submit", function (e) {
+		e.preventDefault();
+		var formData = new FormData(document.getElementById("agregarExpediente"));
+		$.ajax({
+			url: baseurl + "CtrExpedientes/agregar_expediente",
+			type: "post",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false,
+		}).done(function (res) {
+			tablaExpte.ajax.reload();
+			var json = $.parseJSON(res);
+			$("#msg_agregarexpte").html(json.msg).delay(2000).hide(0);
+			setTimeout(function () {
+				$("#msg_agregarexpte").html("").delay(0).show(0);
+			}, 1000);
+		});
+	});
 });
 
 editarExpte = function (
@@ -175,29 +196,6 @@ function updateDatos(
 	$("#mnumpedido").val(num_pedido);
 	$("#mfecha").val(fecha);
 }
-
-$(function () {
-	$("#agregarExpediente").on("submit", function (e) {
-		e.preventDefault();
-		var formData = new FormData(document.getElementById("agregarExpediente"));
-		$.ajax({
-			url: baseurl + "CtrExpedientes/agregar_expediente",
-			type: "post",
-			dataType: "html",
-			data: formData,
-			cache: false,
-			contentType: false,
-			processData: false,
-		}).done(function (res) {
-			tablaExpte.ajax.reload();
-			var json = $.parseJSON(res);
-			$("#msg_agregarexpte").html(json.msg).delay(2000).hide(0);
-			setTimeout(function () {
-				$("#msg_agregarexpte").html("").delay(0).show(0);
-			}, 1000);
-		});
-	});
-});
 
 $(function () {
 	$("#updateExpediente").on("submit", function (e) {
