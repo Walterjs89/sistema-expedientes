@@ -15,24 +15,24 @@
 </div>
   <!-- ./wrapper -->
   <!-- jQuery 3 -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/jquery.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/jquery.min.js"></script>
   <!-- <script src="https://vitalets.github.io/x-editable/assets/mockjax/jquery.mockjax.js"></script> -->
   <!-- Bootstrap 3.3.7 -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/bootstrap.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/bootstrap.min.js"></script>
   <!-- PACE -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/pace.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/pace.min.js"></script>
   <!-- Select2 -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/select2.full.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/select2.full.min.js"></script>
   <!-- InputMask -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/jquery.inputmask.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/jquery.inputmask.js"></script>
   <!-- bootstrap datepicker -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/bootstrap-datepicker.min.js"></script>
-  <script src="<?= base_url() ?>assets/admin-lte/js/bootstrap-datepicker.es.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/bootstrap-datepicker.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/bootstrap-datepicker.es.min.js"></script>
   <!-- FastClick -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/fastclick.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/fastclick.js"></script>
   <!-- DataTables -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/jquery.dataTables.min.js"></script>
-  <script src="<?= base_url() ?>assets/admin-lte/js/dataTables.bootstrap.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/jquery.dataTables.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/dataTables.bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
 
   <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
@@ -43,19 +43,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+  <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
   <!-- fullCalendar -->
-   <script src="<?= base_url() ?>assets/admin-lte/js/moment.js"></script>
-  <script src="<?= base_url() ?>assets/admin-lte/js/fullcalendar.min.js"></script>
-  <script src="<?= base_url() ?>assets/admin-lte/js/es.js"></script>
+   <script src="<?=base_url()?>assets/admin-lte/js/moment.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/fullcalendar.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/es.js"></script>
   <!-- SlimScroll -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/jquery.slimscroll.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/jquery.slimscroll.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="<?= base_url() ?>assets/admin-lte/js/adminlte.min.js"></script>
+  <script src="<?=base_url()?>assets/admin-lte/js/adminlte.min.js"></script>
 
-  <script src="<?= base_url() ?>assets/js/usuario.js"></script>
-  <script src="<?= base_url() ?>assets/js/expediente.js"></script>
-  <script src="<?= base_url() ?>assets/js/cliente.js"></script>
-  
+  <script src="<?=base_url()?>assets/js/usuario.js"></script>
+  <script src="<?=base_url()?>assets/js/expediente.js"></script>
+  <script src="<?=base_url()?>assets/js/cliente.js"></script>
+
   <script type="text/javascript">
     var baseurl = "<?php echo base_url(); ?>";
   </script>

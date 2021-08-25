@@ -17,6 +17,7 @@ $(function () {
 		});
 	});
 
+
 	var tablaExpte = $("#tbl_expediente").DataTable({
 		orderCellsTop: true,
 		fixedHeader: true,
@@ -40,26 +41,38 @@ $(function () {
 		},
 		processing: true,
 		serverSide: true,
-		dom: "lBfrtip",
-		buttons: ["excel", "csv", "pdf", "print", "copy"],
+		dom: "Bfrtip",
+		buttons: [
+			{
+				text: "Exportar a Excel",
+				action: function (e, dt, node, config) {
+
+					$("#tbl_expediente").table2excel({
+						exclude: ".avoid-xls",
+						name: "MEGA SEGURIDAD",
+						filename: "MEGASEGURIDAD.xls", // do include extension
+						preserveColors: true // set to true if you want background colors and font colors preserved
+					    });
+				},
+			},
+		],
+
 		ajax: {
 			url: baseurl + "CtrExpedientes/getExpedientes",
 			type: "POST",
 		},
-		"columnDefs": [
+		columnDefs: [
 			{
-			    "targets": [ 5 ],
-			    "visible": false,
-			    "searchable": false
+				targets: [6],
+				className: "avoid-xls",
 			},
-		    ],
+		],
 		columns: [
 			{ data: "cliente" },
 			{ data: "numero" },
 			{ data: "periodo" },
 			{ data: "monto" },
 			{ data: "pedido" },
-			{ data: "monto_total" },
 			{
 				orderable: true,
 				render: function (data, type, row) {
@@ -89,8 +102,6 @@ $(function () {
 						"','" +
 						row.fecha +
 						"','" +
-						row.monto_total +
-						"','" +
 						row.estado +
 						'\')" data-toggle="modal" data-target=".editarExpte"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs" onclick="eliminarUsuario(\'' +
 						row.id +
@@ -100,7 +111,7 @@ $(function () {
 			},
 		],
 		drawCallback: function (response) {
-      $('#amount_total').text(response.json.totalAmount)
+			$(".amount_total").text(`$ ${ response.json.totalAmount }`);
 		},
 
 		order: [[0, "asc"]],

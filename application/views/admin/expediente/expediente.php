@@ -13,10 +13,10 @@
           <div class="form-group">
             <label for="cliente">CLIENTE : </label>
             <select class="form-control select2" id="cliente" name="cliente" style="width: 100%">
-              <?php if (!empty($dcleinte)) { 
-                foreach ($dcleinte ->result() as $d){ ?>
-              <option value="<?= $d->id_cliente ?>"><?= $d->cliente ?></option>
-              <?php } }  ?>
+              <?php if (!empty($dcleinte)) {
+    foreach ($dcleinte->result() as $d) {?>
+              <option value="<?=$d->id_cliente?>"><?=$d->cliente?></option>
+              <?php }}?>
             </select>
           </div>
           <div class="form-group">
@@ -44,9 +44,9 @@
             <select class="form-control select2" name="relacion" id="relacion" style="width: 100%">
               <option value="NO">NO</option>
               <?php if (!empty($datos)) {
-                foreach ($datos ->result() as $expte) { ?>
-                <option value="<?= $expte->id_expte ?>"><?= $expte->num_expte ?></option>
-              <?php } } ?>
+    foreach ($datos->result() as $expte) {?>
+                <option value="<?=$expte->id_expte?>"><?=$expte->num_expte?></option>
+              <?php }}?>
             </select>
           </div>
           <div id="msg_agregarexpte"></div>
@@ -59,8 +59,8 @@
       </form>
     </div>
     <div class="box box-primary">
-      <div class="box-body">        
-        <p><strong>MONTO TOTAL: </strong>$  <span id="amount_total"><?= number_format($monto->total,2, ",", ".") ?> </span></p>
+      <div class="box-body">
+        <p><strong>MONTO TOTAL: </strong><span class="amount_total"><?=number_format($monto->total, 2, ",", ".")?> </span></p>
       </div>
     </div>
   </div>
@@ -75,13 +75,20 @@
               <th>PERIODO</th>
               <th>MONTO</th>
               <th>N° PEDIDO DE FONDO</th>
-              <th style="display:none">MONTO TOTAL</th>
               <th>ESTADO</th>
-              <th>ACCION</th>
+              <th class="avoid-xls">ACCION</th>
             </tr>
           </thead>
           <tbody>
           </tbody>
+          <tfoot style="background-color: #4c9dbd; color:white">
+            <tr>
+            <th>MONTO TOTAL</th>
+            <th class="amount_total">
+               <?=number_format($monto->total, 2, ",", ".")?> 
+            </th>
+          </tr>
+        </tfoot>
         </table>
       </div>
     </div>
@@ -111,7 +118,7 @@
               <div class="form-group col-md-6">
                 <label for="mperiodo" style="font-weight: normal">PERIODO :</label>
                 <input type="text" class="form-control" id="mperiodo" name="mperiodo" placeholder="Codigo" required>
-              </div>   
+              </div>
               <div class="form-group col-md-6">
                 <label for="mmonto" style="font-weight: normal">MONTO :</label>
                 <input type="text" class="form-control" id="mmonto" name="mmonto" placeholder="Permisos" required>
@@ -133,9 +140,9 @@
                 <select class="form-control" name="mestado" id="mestado" style="width: 100%">
                   <!-- <option value="NO">NO</option> -->
                   <?php if (!empty($destado)) {
-                    foreach ($destado ->result() as $dato) { ?>
-                    <option value="<?= $dato->estado ?>"><?= $dato->estado ?></option>
-                  <?php } } ?>
+    foreach ($destado->result() as $dato) {?>
+                    <option value="<?=$dato->estado?>"><?=$dato->estado?></option>
+                  <?php }}?>
                 </select>
               </div>
             </div>
@@ -165,7 +172,7 @@
               <div class="alert  alert-dismissible fade in" role="alert" style="background-color: #F7BFB0">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 </button>
-                <strong style="font-weight: bold;color: #DC1D0D"><center><i class="fa fa-warning" style="width: 30px"></i> Esta accion eliminara el expediente de este sistema.</center></strong> 
+                <strong style="font-weight: bold;color: #DC1D0D"><center><i class="fa fa-warning" style="width: 30px"></i> Esta accion eliminara el expediente de este sistema.</center></strong>
               </div>
               <input type="hidden" name="meid" id="meid" required>
             </div>
