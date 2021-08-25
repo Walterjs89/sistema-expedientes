@@ -196,7 +196,7 @@ class CtrExpedientes extends CI_Controller
         $data = array(
             'num_expte' => $this->input->post("mnumero"),
             'periodo' => $this->input->post("mperiodo"),
-            'monto' => str_replace('$','',$this->input->post("mmonto")),
+            'monto' => str_replace(['$','.'],'',$this->input->post("mmonto")),
             'num_pedido' => $this->input->post("mpedido"),
             'estado_expte' => $this->input->post("mestado"),
             'alta_expte' => $this->input->post("mfecha"),
