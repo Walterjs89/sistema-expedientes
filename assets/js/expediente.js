@@ -17,14 +17,13 @@ $(function () {
 		});
 	});
 
-
 	var tablaExpte = $("#tbl_expediente").DataTable({
 		orderCellsTop: true,
 		fixedHeader: true,
+		pageLength: 100,
 		rowReorder: {
 			selector: "td:nth-child(2)",
 		},
-		pageLength:100,
 		language: {
 			sProcessing: "Procesando...",
 			sLengthMenu: "Mostrar _MENU_ registros",
@@ -42,22 +41,20 @@ $(function () {
 		},
 		processing: true,
 		serverSide: true,
-		dom: "Bfrtip",
+		dom: "lBfrtip",
 		buttons: [
 			{
 				text: "Exportar a Excel",
 				action: function (e, dt, node, config) {
-
 					$("#tbl_expediente").table2excel({
 						exclude: ".avoid-xls",
 						name: "MEGA SEGURIDAD",
 						filename: "MEGASEGURIDAD.xls", // do include extension
-						preserveColors: true // set to true if you want background colors and font colors preserved
-					    });
+						preserveColors: true, // set to true if you want background colors and font colors preserved
+					});
 				},
 			},
 		],
-
 		ajax: {
 			url: baseurl + "CtrExpedientes/getExpedientes",
 			type: "POST",
@@ -112,7 +109,7 @@ $(function () {
 			},
 		],
 		drawCallback: function (response) {
-			$(".amount_total").text(`$ ${ response.json.totalAmount }`);
+			$(".amount_total").text(`$ ${response.json.totalAmount}`);
 		},
 
 		order: [[0, "asc"]],
